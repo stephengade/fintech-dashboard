@@ -1,0 +1,127 @@
+@import "../../styles/variables";
+
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    background-color: #FFFFFF;
+
+
+    // left side
+
+    .left_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40%;
+
+        .logo {
+            @include xs {
+               width: 100px;
+            }
+        }
+
+      .inputWrapper {
+        width: 600px;
+        border: 1px solid #545F7D; 
+        border-radius: 8px;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            outline: none;
+            border: none;
+            padding: 8px 10px;
+            background-color: transparent;
+        }
+
+        .button {
+            background-color: $len-green;
+            height: 100%;
+            display: flex;
+            cursor: pointer;
+            padding: 9px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        @include xs {
+            display: none;
+        }
+      }
+    }
+
+
+
+    // right side
+
+    .right_side {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+
+        p:first-child {
+            text-decoration: underline;
+            font-size: 16px;
+            color: $len-blue;
+            cursor: pointer;
+
+            &:hover {
+                opacity: .7;
+            }
+
+            
+        @include xs {
+            display: none;
+        }
+        }
+
+         .show_menu {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            opacity: .7;
+        }
+          
+
+            span {
+                display: inline-flex;
+                cursor: pointer;
+                font-size: 16px;
+                color: $len-blue; 
+            }
+    
+            .name {
+                @include xs {
+                    display: none;
+                }
+            }
+
+         }
+
+      
+
+        .user_profile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+             gap: 5px
+        }
+    }
+}
+
+
+.mobile_hide {
+    
+    @include xs {
+        display: none;
+    }
+}

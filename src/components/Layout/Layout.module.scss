@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.section {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.main {
+    background-color: #FBFBFB;
+    width: 85%;
+    min-height: 100vh;
+    padding: 25px;
+
+    @include xs {
+        width: 100%;
+    }
+}
+
+.aside {
+    overflow: scroll;
+    width: 15%;
+    min-height: 100%;
+    @include xs {
+        display: none;
+    }
+}
