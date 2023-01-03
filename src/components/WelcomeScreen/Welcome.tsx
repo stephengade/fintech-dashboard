@@ -1,77 +1,114 @@
-import React, {useState} from 'react'
-import WelcomeImage from "../../images/welcomeImage.svg"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import WelcomeImage from "../../images/welcomeImage.svg";
 import Logo from "../../images/lendrLogo.svg";
-import classes from "./Welcome.module.scss"
+import classes from "./Welcome.module.scss";
 
 const Welcome = () => {
+  const [showPassword, setShowPassord] = useState(false);
+  const togglePassord = () => setShowPassord(!showPassword);
+  const [loading, setloading] = useState(false);
+  const [error, setError] = useState("");
+  const goTo = useNavigate();
 
-const [showPassword, setShowPassord] = useState(false)
+  const [formData, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-const togglePassord = () => setShowPassord(!showPassword)
+  const handleChange = (e: { target: { value: any; name: any } }) => {
+    setData({ ...formData, [e.target.name]: e.target.value });
+  };
 
+  const handleSubmit = (e?: any) => {
+    e.preventDefault();
+    console.log("DATA:", formData);
+
+    try {
+      if (
+        formData.email.includes("@") &&
+        formData.password.length > 5 
+      ) {
+        setloading(true);
+        setTimeout(() => {
+          goTo("/dashboard");
+        }, 3000);
+      } else {
+        setError(
+          `Email address must include "@" and password must be greater then 5 letters`
+        );
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
-   <>
-    <div className={classes.logo}>
-    <a href="/">
-        <img src={Logo} alt="lendsqr logo" />
-    </a>
-</div>
+    <>
+      <div className={classes.logo}>
+        <a href="/">
+          <img src={Logo} alt="lendsqr logo" />
+        </a>
+      </div>
 
-     
-
-    <section className={classes.section}>
-
-     
-
+      <section className={classes.section}>
         <div className={classes.imageStyle}>
-
-        {/* // image */}
+          {/* // image */}
           <img src={WelcomeImage} alt="welcome to Lendsqr" />
-       </div> 
+        </div>
 
+        {/* // form starts here */}
 
-
-          {/* // form starts here */}
-
-          
         <div className={classes.contentStyle}>
-           <h2 className={classes.title}>Welcome!</h2>
+          <h2 className={classes.title}>Welcome!</h2>
 
-           <p className={classes.info}>Enter details to login</p>
-
-
-           <form>
-           <div className={classes.inputWrapper}>
-            <input type="email" placeholder="email address" />
+          {error !== "" ? (
+            <p className={classes.error}>{error}</p>
+          ) : (
+            <p className={classes.info}>Enter details to login</p>
+          )}
+          <form>
+            <div className={classes.inputWrapper}>
+              <input
+                name="email"
+                type="email"
+                placeholder="email address"
+                value={formData.email}
+                onChange={handleChange}
+              />
             </div>
 
             <div className={`${classes.inputWrapper} ${classes.flex}`}>
-            <input type={showPassword ? "text" : "password"} placeholder="password" />
-             <span className={classes.show} onClick={togglePassord}>{showPassword ? "hide" : "show" }</span>
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+              <span className={classes.show} onClick={togglePassord}>
+                {showPassword ? "hide" : "show"}
+              </span>
             </div>
 
             <p className={classes.password}>
-                <a href="/" target="_blank">Forgotten password?</a>
+              <a href="/" target="_blank">
+                Forgotten password?
+              </a>
             </p>
 
-            <button type="button" className={classes.button}>Log in</button>
-
-
-          
-
-
-
-           </form>
-
+            <button
+              type="button"
+              className={classes.button}
+              onClick={handleSubmit}
+            >
+              {loading ? "Please wait..." : "Log in"}
+            </button>
+          </form>
         </div>
-
-
-
-    </section>
+      </section>
     </>
+  );
+};
 
-  )
-}
-
-export default Welcome
+export default Welcome;
