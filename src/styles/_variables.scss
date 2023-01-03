@@ -1,8 +1,15 @@
 
+
+// font
+
+$work-sans: 'Work Sans', sans-serif;
+
+
 body {
     overflow: hidden;
     width: 100%;
     height: 100%;
+    font-family: $work-sans;
 }
 // colors
 
@@ -11,9 +18,8 @@ $len-blue: #213F7D;
 $len-red: #E4033B;
 $len-text: #545F7D;
 
-// font
 
-$work-sans: 'Work Sans', sans-serif;
+
 
 // screen sizes
 

@@ -2,33 +2,165 @@
 
 .title {
     font-family: $work-sans;
-     color: $len-red;
-     font-size: 64px;
+     color: $len-blue;
+     font-size: 40px;
 }
 
-.main {
-    font-family: $work-sans;
-    height: 100%;
-    width: 100%;
+.info {
+    font-size: 20px;
+    color: #545F7D;
+    margin: 5px 0;
 }
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.logo {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+
+// field
+
+$web-width: 60%;
+$mobile-width: 90%;
+
+// button
+
+.button {
+    background-color: $len-green;
+    padding: 10px 30px;
+    border-radius: 5px;
+    outline:  none;
+    border: 1px solid transparent;
+    color: white;
+    width: $web-width;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    @include xs {
+        width: $mobile-width;
+    }
+
+    &:hover {
+        opacity: .7;
+    }
+}
+
+
+// password field
+
+.show {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    color: $len-green;
+    cursor: pointer;
+}
+
+.password {
+    margin: 18px 0;
+    a {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        color: $len-green; 
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+// main section
+
 
 .section {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
+   
+  
     
 
+    // welcome image part
+
+    .imageStyle {
+        width: 50%;
+        margin-left: 5%;
+    }
+
+
+    // form part
+    .contentStyle {
+        background: #FFFFFF;
+        box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 5%;
+
+
+
+        form {
+
+            .inputWrapper {
+                width: $web-width;
+                border: 1px solid #545F7D;
+                border-radius: 5px;
+                margin: 15px 0;
+                background-color: #FFFFFF;
+
+                @include xs {
+                    width: $mobile-width;
+                }
+
+
+                input {
+                    padding: 15px 10px;
+                    outline: none;
+                    border: none;
+                    width: 100%;
+
+                    &::placeholder {
+                        text-transform: capitalize;
+                    }
+                }
+
+            }
+           
+        }
+        
+    }
    
-   
+
+    // responsiveness part
     @include xs {
         flex-direction: column;
 
         .imageStyle {
             display: none;
         }
+
+
+        .contentStyle {
+            width: 100%;
+        }
     }
+
+    // responsiveness ends
    
    
 }
