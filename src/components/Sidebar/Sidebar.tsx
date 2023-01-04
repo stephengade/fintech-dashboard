@@ -1,12 +1,54 @@
-import React from "react";
-
 import style from "./Sidebar.module.scss";
 
-import { CustomerList, BusinessList, settingList } from "./SidebarData";
+import React, { useState } from "react";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+
+import {
+  FirstList,
+  SecondList,
+  CustomerList,
+  BusinessList,
+  settingList,
+} from "./SidebarData";
+
+const DropDown = <BsChevronDown color="#213F7D" />;
+const DropUp = <BsChevronUp color="#213F7D" />;
 
 const Sidebar = () => {
+  const [isDrop, setDrop] = useState(false);
+
+  const handleDropdown = () => setDrop(!isDrop)
+
+  
   return (
     <>
+      <div className={style.wrapper}>
+        <ul className={style.list__item}>
+          {FirstList.map((data, index) => (
+            <li key={index} onClick={handleDropdown} className={style.drop}>
+              <img src={data.icon} alt={data.label} />{" "}
+              
+                <span className={style.p}>{data.label}</span>
+              
+               {isDrop ? DropUp: DropDown}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={style.wrapper}>
+        <ul className={style.list__item}>
+          {SecondList.map((data, index) => (
+            <li key={index}>
+              <img src={data.icon} alt={data.label} />{" "}
+              <a href={data.link} target="_blank" rel="noreferrer">
+                {data.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <div className={style.wrapper}>
         <p>customers</p>
         <ul className={style.list__item}>
@@ -21,7 +63,6 @@ const Sidebar = () => {
         </ul>
       </div>
 
-
       <div className={style.wrapper}>
         <p>business</p>
         <ul className={style.list__item}>
@@ -35,7 +76,6 @@ const Sidebar = () => {
           ))}
         </ul>
       </div>
-
 
       <div className={style.wrapper}>
         <p>settings</p>

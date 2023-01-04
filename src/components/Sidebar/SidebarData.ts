@@ -26,24 +26,28 @@ interface iData {
 
 // top two
 
-export const FirstList: iData[] = [
+export const FirstList = [
   {
-    link: "/",
     icon: briefcase,
     label: "Switch Organization",
-  },
+  }
+  
+];
+
+
+export const SecondList: iData[] = [
   {
     link: "/",
     icon: dashboard,
     label: "Dashboard",
-  },
-];
+  }
+]
 
 // customers
 
 export const CustomerList: iData[] = [
   {
-    link: "/",
+    link: "/users",
     icon: users,
     label: "Users",
   },
