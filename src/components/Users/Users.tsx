@@ -5,10 +5,11 @@ import ActiveUser from "../../images/activeIcon.svg"
 import loanUser from "../../images/loanIcon.svg"
 import savingIcon from "../../images/savingsIcon.svg"
 import style from "./Users.module.scss"
+import UserData from './UserData';
 
 const Users = () => {
   return (
-    <section className={""}>
+    <>
 
         <div className={style.cards}>
             <Card icon={UserIcon} title="USERS" number="2,453" />
@@ -18,7 +19,12 @@ const Users = () => {
         </div>
 
 
+         
+    <section className={style.table}>
+        <UserData />
     </section>
+
+    </>
   )
 }
 

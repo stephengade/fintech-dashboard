@@ -1,20 +1,22 @@
 import React from "react";
-
+import design from "../../Utils/Table/Table.module.scss"
 interface iData {
-    Data: any[]
-} 
+  Header: any[];
+  Column: any[];
+}
 
-const Column = ({Data}: iData) => {
+const Column = ({ Column, Header }: iData) => {
   return (
     <>
-      {Data.map((h, i) => {
-        return (
-          <tr key={i}>
-            <th>{h}</th>
-          </tr>
-        );
-      })}
-    </>
+    {Column.map(col => (
+        <tr key={col.name} className={design.dataRow}>
+        {Header.map((h, i) => (
+          <td key={i} className={design.data}>{col[h]}</td>
+          
+        ))}
+      </tr>
+    ))}
+   </>
   );
 };
 

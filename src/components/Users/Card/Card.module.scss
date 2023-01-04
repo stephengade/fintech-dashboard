@@ -1,16 +1,17 @@
 @import "../../../styles/variables";
 
 .card_wrapper {
-    background-color: white;
+   
     width: 240px;
     height: 160px;
-    border: 1px solid #213F7D0F;
-    border-radius: 3px;
+   
     padding: 20px;
 
-    &::hover {
-        background-color: red ;
-    }
+    background: #FFFFFF;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+
 
     @include xs {
         width: 48%;
