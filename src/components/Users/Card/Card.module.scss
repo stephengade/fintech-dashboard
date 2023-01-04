@@ -1,0 +1,33 @@
+@import "../../../styles/variables";
+
+.card_wrapper {
+   
+    width: 240px;
+    height: 160px;
+   
+    padding: 20px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+
+
+    @include xs {
+        width: 48%;
+    }
+
+    h3 {
+        margin: 10px 0;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #545F7D;
+    }
+
+    p {
+        font-size: 24px;
+        font-weight: 600;
+        color: #213F7D;
+    }
+
+}

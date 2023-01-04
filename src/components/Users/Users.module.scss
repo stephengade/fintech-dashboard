@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include xs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
