@@ -14,7 +14,7 @@ import { Items } from './Card/DataItems';
 const UserData = () => {
  
   const [currentPage, setCurrentPage] = useState(1); // state to store the current page
-  const [itemsPerPage] = useState(10); // number of items per page
+  const [itemsPerPage, setItemsPerPage] = useState(10); // number of items per page
 
   const header = ["organisation", "username", "email", "phone Number", "date Joined", "status"];
 
@@ -69,8 +69,8 @@ const UserData = () => {
         itemsPerPage={itemsPerPage}
         totalItems={totalItems}
         currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+        setCurrentPage={setCurrentPage} 
+        setItemsPerPage={setItemsPerPage}       />
     </>
   );
 };

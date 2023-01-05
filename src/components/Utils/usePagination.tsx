@@ -12,12 +12,16 @@ interface iPage {
     totalItems:  number 
     currentPage: number
     setCurrentPage: number | any
+    setItemsPerPage: any
 }
 
 
-const Pagination = ({ itemsPerPage, totalItems, currentPage, setCurrentPage }: iPage) => {
+const Pagination = ({ itemsPerPage, totalItems, currentPage, setCurrentPage, setItemsPerPage }: iPage) => {
     const [selectedItemsPerPage, setSelectedItemsPerPage] = useState(itemsPerPage);
+
+   
     const totalPages = Math.ceil(totalItems / selectedItemsPerPage);
+
 
   const handlePrevClick = () => {
     setCurrentPage(currentPage - 1);
@@ -28,6 +32,7 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, setCurrentPage }: i
   };
   const handleItemsPerPageChange = (event: any) => {
     setSelectedItemsPerPage(event.target.value);
+    setItemsPerPage(event.target.value);
   };
 
   return (
