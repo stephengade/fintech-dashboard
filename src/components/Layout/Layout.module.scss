@@ -10,12 +10,14 @@
 
 .main {
     background-color: #FBFBFB;
-    width: 80%;
+    width: 85%;
     height: 800px;
     padding: 25px;
-    margin-left: 20%;
+    margin-left: 15%;
     overflow: scroll;
     position: fixed; 
+    padding-bottom: 300px;
+  
 
     @include xs {
         width: 100%;
@@ -24,7 +26,7 @@
 }
 
 .aside {
-    width: 20%;
+    width: 15%;
     position: fixed; 
     height: 600px;
     overflow: auto;
