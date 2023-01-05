@@ -156,14 +156,44 @@ position: relative;
 
     .section {
 
+        
+            h3 {
+                color: $len-blue;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        
+
         .details {
         display: flex;
         flex-direction: row;
         margin-top: 20px;
 
-        span {
-            margin-right: 80px;
-        }
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 100%;
+          }
+          td {
+            padding: 2px 8px;
+          
+            width: 20%;
+
+            .title {
+                color: $len-text;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 500;
+            }
+
+            .info {
+                color: $len-text;
+                font-size: 16px;
+                 text-transform: capitalize;
+                 font-weight: 600;
+                 margin-top: 4px;
+            }
+          }
         
     }
 }
