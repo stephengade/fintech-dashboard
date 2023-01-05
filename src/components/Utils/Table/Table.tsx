@@ -1,22 +1,21 @@
 import React from 'react'
 import Header from './Header'
-import Column from './Column'
 import design from "./Table.module.scss"
 
 interface iTable {
-    ColumnData: any[]
     HeaderData: any[]
     children?: any
+    prop?: any
 }
 
-const Table = ({ColumnData, HeaderData, children}: iTable) => {
+const Table = ({ HeaderData, children, prop}: iTable) => {
   return (
    <table className={design.table}>
     
-    <Header header={HeaderData} children={children} />
+    <Header header={HeaderData} prop={prop} />
    
    
-    <Column Column={ColumnData} Header={HeaderData} />
+      {children}
    
    </table>
   )

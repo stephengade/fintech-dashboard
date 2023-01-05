@@ -8,14 +8,11 @@ interface iData {
 const Column = ({ Column, Header }: iData) => {
   return (
     <>
-    {Column.map(col => (
-        <tr key={col.name} className={design.dataRow}>
-        {Header.map((h, i) => (
-          <td key={i} className={design.data}>{col[h]}</td>
-          
-        ))}
+   
+        <tr  className={design.dataRow}>     
+          <td className={design.data}></td>
       </tr>
-    ))}
+   
    </>
   );
 };
