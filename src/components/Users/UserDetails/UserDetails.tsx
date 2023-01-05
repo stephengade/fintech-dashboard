@@ -44,25 +44,25 @@ const UserDetails = () => {
           width={100}
           height={100}
         />
-        <span className={color.identifier}>
+        <td className={color.identifier}>
           <h3>{username}</h3>
 
           <p>{userId}</p>
-        </span>
+        </td>
 
-        <span className={color.line} />
-        <span className={color.rating}>
+        <td className={color.line} />
+        <td className={color.rating}>
           <p>User's Tier</p>
-        </span>
-        <span className={color.line} />
+        </td>
+        <td className={color.line} />
 
-        <span className={color.account}>
+        <td className={color.account}>
           <h3>{balance}</h3>
 
           <p>
             {accountNo}/{bankName}
           </p>
-        </span>
+        </td>
 
         <div className={color.links}>
           {["General Details", "Documents", "Bank Details", "Loans"].map(
@@ -80,47 +80,51 @@ const UserDetails = () => {
           <h3>Personal Information</h3>
 
           <div className={color.details}>
-            <span>
+            <table>
+                <tr>
+            <td>
               <p className={color.title}>full name</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
 
-            <span>
+            <td>
               <p className={color.title}>phone number</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
 
-            <span>
+            <td>
               <p className={color.title}>email address</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
 
-            <span>
+            <td>
               <p className={color.title}>bvn</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
 
-            <span>
+            <td>
               <p className={color.title}>gender</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
+            </tr>
+            </table>
           </div>
 
           <div className={color.details}>
-            <span>
+            <td>
               <p className={color.title}>Marital status</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
 
-            <span>
+            <td>
               <p className={color.title}>children</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
 
-            <span>
+            <td>
               <p className={color.title}>Type of residence</p>
               <p className={color.info}>{username}</p>
-            </span>
+            </td>
           </div>
         </div>
 
