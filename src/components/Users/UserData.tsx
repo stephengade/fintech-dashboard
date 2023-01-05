@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import design from "../Utils/Table/Table.module.scss"
 
-import Pagination from '../Utils/usePagination'
+import Pagination from '../Utils/SetPagination'
 
 import { Items } from './Card/DataItems';
 
@@ -70,7 +70,8 @@ const UserData = () => {
         totalItems={totalItems}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage} 
-        setItemsPerPage={setItemsPerPage}       />
+        setItemsPerPage={setItemsPerPage}     
+          />
     </>
   );
 };
