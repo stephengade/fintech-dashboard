@@ -5,7 +5,7 @@ import design from "../../Utils/Table/Table.module.scss";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MenuList } from "../../Utils/Menu/TableMenu";
 
-
+import _ from 'lodash';
 
 const menuIcon = <BsThreeDotsVertical />;
 
@@ -36,7 +36,10 @@ export const Items = ({
     }
   };
 
+ // status
 
+ const status = ["active", "inactive", "blacklisted"];
+const shuffledStatus = _.shuffle(status);
   
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -51,7 +54,7 @@ export const Items = ({
           <td className={design.data}>{item.email}</td>
           <td className={`${design.data}`}>{item.phoneNumber}</td>
           <td className={`${design.data}`}>{formatDate(item.createdAt)}</td>
-          <td className={`${design.data}`}>{"inactive"}</td>
+          <td className={`${design.data}`}>{shuffledStatus[index % 3]}</td>
           <td
             className={`${design.data} ${design.menu}`}
             onClick={() => toggleMenu(item.id)}
