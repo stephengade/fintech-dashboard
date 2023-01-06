@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import color from "./UserDetails.module.scss";
 import avater from "../../../images/avatar.svg";
 import { useProfile } from './../../Utils/hooks/useProfile';
@@ -8,14 +9,19 @@ const UserDetails = () => {
 
   const { id } = useParams();
 
+  const navigate = useNavigate()
  const userInfo = useProfile(id)
 
 
+ 
+  const handleBack = () => {
+    navigate("/users")
+  }
 
   return (
     <main className={color.main}>
       <div className={color.header}>
-        <p>&larr; Back to Users</p>
+        <p onClick={handleBack}>&larr; Back to Users</p>
 
         <div className={color.title_buttons}>
           <h3>User Details</h3>

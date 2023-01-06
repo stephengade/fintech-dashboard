@@ -1,21 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { formatDate } from "../../Utils/formatDate";
 import design from "../../Utils/Table/Table.module.scss";
-// import { GrView } from "react-icons/gr";
+
 import { BsThreeDotsVertical } from "react-icons/bs";
-// import { SlUserFollowing, SlUserUnfollow } from "react-icons/sl";
+import { MenuList } from "../../Utils/Menu/TableMenu";
+
+
 
 const menuIcon = <BsThreeDotsVertical />;
 
-// const viewIcon = <GrView fontSize="12px" />;
-// const acceptIcon = <SlUserFollowing fontSize="12px"/>;
-// const deleteIcon = <SlUserUnfollow fontSize="12px"/>;
 
 interface iItem {
   Data: any[];
   currentPage: number;
   itemsPerPage: number;
-  handleMenu: (e?: any) => void;
 }
 
 
@@ -23,8 +21,23 @@ export const Items = ({
   Data,
   currentPage,
   itemsPerPage,
-  handleMenu,
+ 
 }: iItem) => {
+
+
+
+ const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+
+  const toggleMenu = (id: string) => {
+    if (openMenuId === id) {
+      setOpenMenuId(null);
+    } else {
+      setOpenMenuId(id);
+    }
+  };
+
+
+  
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedItems = Data && Data.slice(startIndex, endIndex);
@@ -41,9 +54,11 @@ export const Items = ({
           <td className={`${design.data}`}>{"inactive"}</td>
           <td
             className={`${design.data} ${design.menu}`}
-            onClick={() => handleMenu(item)}
+            onClick={() => toggleMenu(item.id)}
           >
             {menuIcon}
+
+            {openMenuId === item.id && <MenuList id={item} />}
           </td>
         </tr>
       ))}

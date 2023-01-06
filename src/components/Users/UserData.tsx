@@ -8,47 +8,7 @@ import design from "../Utils/Table/Table.module.scss"
 import Pagination from '../Utils/SetPagination'
 
 import { Items } from './Card/DataItems';
-
-import { GrView } from "react-icons/gr";
-import { SlUserFollowing, SlUserUnfollow } from "react-icons/sl";
-
-
-const viewIcon = <GrView fontSize="12px" color="#545F7D" />;
-const acceptIcon = <SlUserFollowing fontSize="12px" color="#545F7D"/>;
-const deleteIcon = <SlUserUnfollow fontSize="12px" color="#545F7D"/>;
-
-// export const MenuList = (id: any) => {
- 
-//   const deleteUser = () => {
-//     alert(`Your about to delete ${id.userName}`);
-//   };
-
-//   const activateUser = () => {
-//     alert(`Your about to approve ${id.userName}`);
-//   };
-
-//   return (
-//     <ul className={design.menuList}>
-//       <li> {viewIcon}
-//         <a href={`/user/${id}`}>
-//           {" "}
-          
-//           <span>View Details</span>
-//         </a>
-//       </li>
-
-//       <li onClick={deleteUser}>
-//         {" "}
-//         {deleteIcon} <span>Delete user</span>
-//       </li>
-//       <li onClick={activateUser}>
-//         {" "}
-//         {acceptIcon} <span>Activate user</span>
-//       </li>
-//     </ul>
-//   );
-// };
-
+import Filter from '../Utils/Filter/Filter'
 
 
 const UserData = () => {
@@ -61,7 +21,15 @@ const UserData = () => {
   const [data, setData] = useState([]); // state to store the data
   const [loading, setLoading] = useState(true)
 
-   const [show, setShow] = useState(false);
+
+//filter
+const [filteredItems, setFilteredItems] = useState(data);
+
+const handleFilter = (filteredItems: any) => {
+  setFilteredItems(filteredItems);
+};
+
+  const [showFilter, setShowFilter] = useState(false)
     
   useEffect(() => {
     const fetchData = async () => {
@@ -81,22 +49,12 @@ const UserData = () => {
 
 
 // filter
-  const Filter = (
-    <span className={design.filter} onClick={() => alert("working")}>
-      <img width="14px" height="14px" src={filterIcon} alt="filter" />
-    </span>
-  );
-
-
-  // menu
+  const FilterIcon =  <span className={design.filter} onClick={() => setShowFilter(!showFilter)}>
+        <img width="14px" height="14px" src={filterIcon} alt="filter" />
+      </span>
+    
   
-const handleMenu = (id: any) => {
-  setShow(!show);
-
-  alert(id.userName)
-
-  };
-
+  
 
 
   
@@ -106,13 +64,13 @@ const handleMenu = (id: any) => {
 
   return (
     <>
-      <Table HeaderData={header} prop={Filter}>
+      <Table HeaderData={header} filter={FilterIcon}>
         <Items
           Data={data}
           currentPage={currentPage}
           itemsPerPage={itemsPerPage}
-          handleMenu={handleMenu}
         />
+     {showFilter && <Filter items={data} onFilter={handleFilter}/>}
       </Table>
       <Pagination
         itemsPerPage={itemsPerPage}

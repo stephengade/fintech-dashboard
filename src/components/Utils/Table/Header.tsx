@@ -3,15 +3,15 @@ import design from "./Table.module.scss"
 
 interface iHeader {
     header: any[]
-    prop?: any
+    filter?: any
 }
-const Header = ({header, prop}: iHeader) => {
+const Header = ({header, filter}: iHeader) => {
     return (
       <tr>
         {header.map((h, i) => (
           <th key={i} className={design.row}>
             {h}
-            {prop}
+            {filter}
           </th>
         ))}
       </tr>
