@@ -1,0 +1,79 @@
+@import "../../../styles/variables";
+
+.filterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+        background: #FFFFFF;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+        padding: 20px;
+
+    position: absolute;
+    top: 270px;
+
+    @include xs {
+        top: 0;
+    }
+
+    .label {
+        font-size: 12px;
+        color: #213F7D;
+        margin-bottom: -4px;
+    }
+  
+    .input {
+      border-radius: 5px;
+      padding:5px 8px;
+      border: 1px solid #213F7D;
+     width: 150px;
+      outline: none;
+      font-size: 12px;
+      color: #213F7D;
+      
+     
+  
+      &::placeholder {
+        color: #545F7D;
+      }
+  
+      &:focus {
+        border-color: #39CDCC;
+      }
+    }
+
+    .buttons {  
+        display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+
+    .filterbutton {
+        border-radius: 5px;
+   padding:5px 8px;
+      background: #39CDCC;
+      color: #fff;
+      border: 1px solid #39CDCC;
+
+      font-size: 14px;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .resetbutton {
+        border-radius: 5px;
+     padding:5px 8px;
+        color: $len-green;
+        border: 1px solid #39CDCC;
+       background-color: #FFFFFF;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s;
+    
+      }
+}
+  }
+  

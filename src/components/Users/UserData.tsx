@@ -8,7 +8,7 @@ import design from "../Utils/Table/Table.module.scss"
 import Pagination from '../Utils/SetPagination'
 
 import { Items } from './Card/DataItems';
-
+import Filter from '../Utils/Filter/Filter'
 
 
 const UserData = () => {
@@ -22,6 +22,14 @@ const UserData = () => {
   const [loading, setLoading] = useState(true)
 
 
+//filter
+const [filteredItems, setFilteredItems] = useState(data);
+
+const handleFilter = (filteredItems: any) => {
+  setFilteredItems(filteredItems);
+};
+
+  const [showFilter, setShowFilter] = useState(false)
     
   useEffect(() => {
     const fetchData = async () => {
@@ -40,30 +48,29 @@ const UserData = () => {
   }, []);
 
 
+// filter
+  const FilterIcon =  <span className={design.filter} onClick={() => setShowFilter(!showFilter)}>
+        <img width="14px" height="14px" src={filterIcon} alt="filter" />
+      </span>
+    
+  
+  
 
-  const Filter = (
-    <span className={design.filter} onClick={() => alert("working")}>
-      <img width="14px" height="14px" src={filterIcon} alt="filter" />
-    </span>
-  );
 
-  const handleMenu = (e: any) => {
-    alert(e);
-  };
-
+  
   const totalItems = data.length;
 
   if (loading) return <p className={design.data}>Loading...</p>;
 
   return (
     <>
-      <Table HeaderData={header} prop={Filter}>
+      <Table HeaderData={header} filter={FilterIcon}>
         <Items
-          Data={data}
+          Data={filteredItems.length === 0 ? data : filteredItems}
           currentPage={currentPage}
           itemsPerPage={itemsPerPage}
-          handleMenu={handleMenu}
         />
+     {showFilter && <Filter items={data} onFilter={handleFilter} setShowFilter={setShowFilter}/>}
       </Table>
       <Pagination
         itemsPerPage={itemsPerPage}
@@ -72,6 +79,7 @@ const UserData = () => {
         setCurrentPage={setCurrentPage} 
         setItemsPerPage={setItemsPerPage}     
           />
+        
     </>
   );
 };

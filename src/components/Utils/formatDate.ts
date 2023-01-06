@@ -9,3 +9,16 @@ export const formatDate = (dateString: string | number | Date) => {
   };
   return date.toLocaleDateString("en-US", options);
 };
+
+
+
+const currencySymbols: { [x: string]: string; } = {
+  NGN: '₦',
+  USD: '$',
+  // ... add other currency codes as needed
+};
+
+export const formatMoney = (currency: string, value: any) => {
+  const symbol = currencySymbols[currency] || '';
+  return `${symbol}${value}`;
+}

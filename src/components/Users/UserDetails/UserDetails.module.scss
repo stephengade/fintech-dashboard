@@ -14,6 +14,11 @@
 }
 
 
+.mt6 {
+  margin-top: 30px;
+}
+
+
 .main {
   .header {
     p {
@@ -133,7 +138,7 @@ position: relative;
     justify-content: space-between;
 
     p {
-        color: #000;
+        color: rgba(0, 0, 0, 0.8);
         font-size: 16px;
         margin-bottom: 5px;
         cursor: pointer;
@@ -152,6 +157,7 @@ position: relative;
     border-radius: 4px;
     padding: 40px;
     margin-top: 50px;
+    position: relative;
 
 
     .section {
@@ -175,7 +181,7 @@ position: relative;
             width: 100%;
           }
           td {
-            padding: 2px 8px;
+            padding: 2px  8px 8px 0;
           
             width: 20%;
 
@@ -183,14 +189,14 @@ position: relative;
                 color: $len-text;
             font-size: 12px;
             text-transform: uppercase;
-            font-weight: 500;
+          
             }
 
             .info {
                 color: $len-text;
-                font-size: 16px;
+                font-size: 12px;
                  text-transform: capitalize;
-                 font-weight: 600;
+                 font-weight: 500;
                  margin-top: 4px;
             }
           }
