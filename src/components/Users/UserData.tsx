@@ -66,11 +66,11 @@ const handleFilter = (filteredItems: any) => {
     <>
       <Table HeaderData={header} filter={FilterIcon}>
         <Items
-          Data={data}
+          Data={filteredItems.length === 0 ? data : filteredItems}
           currentPage={currentPage}
           itemsPerPage={itemsPerPage}
         />
-     {showFilter && <Filter items={data} onFilter={handleFilter}/>}
+     {showFilter && <Filter items={data} onFilter={handleFilter} setShowFilter={setShowFilter}/>}
       </Table>
       <Pagination
         itemsPerPage={itemsPerPage}

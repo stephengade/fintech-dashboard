@@ -15,9 +15,10 @@ interface Item {
 interface Props {
   items: Item[];
   onFilter: (filteredItems: Item[]) => void;
+  setShowFilter: any
 }
 
-const Filter = ({ items, onFilter }: Props) => {
+const Filter = ({ items, onFilter, setShowFilter }: Props) => {
   const [orgName, setOrgName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,17 +26,25 @@ const Filter = ({ items, onFilter }: Props) => {
   const [dateJoined, setDateJoined] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleFilter = () => {
-    const filteredItems = items.filter(
-      (item) =>
-        item.orgName.toLowerCase().includes(orgName.toLowerCase()) &&
-        item.userName.toLowerCase().includes(userName.toLowerCase()) &&
-        item.email.toLowerCase().includes(email.toLowerCase()) &&
-        item.phoneNumber.includes(phoneNumber) &&
-        formatDate(item.dateJoined).includes(dateJoined) &&
-        ["active", "inacive", "blacklisted"].includes(status.toLowerCase())
-    );
+//   const handleFilter
+
+
+  const handleFilter = (e: any) => {
+    e.preventDefault();
+
+    const filteredItems = items.filter((item: any) => {
+      return (
+        (orgName === '' || item.orgName.toLowerCase().includes(orgName.toLowerCase())) &&
+        (userName === '' || item.userName.toLowerCase().includes(userName.toLowerCase())) &&
+        (email === '' || item.email.toLowerCase().includes(email.toLowerCase())) &&
+        (phoneNumber === '' || item.phoneNumber.toLowerCase().includes(phoneNumber.toLowerCase())) &&
+        (status === '' || ["active", "inactive", "blacklisted"].includes(status.toLowerCase())) &&
+        (dateJoined === "" || formatDate(item.dateJoined).includes(dateJoined) )
+      );
+    });
+
     onFilter(filteredItems);
+    setShowFilter(false)
   };
 
   const handleReset = () => {
@@ -46,9 +55,11 @@ const Filter = ({ items, onFilter }: Props) => {
     setPhoneNumber("");
     setDateJoined("");
     onFilter(items);
+    setShowFilter(false)
   };
 
-  return (
+  
+  return  (
     <div className={styles.filterContainer}>
       <label className={styles.label} htmlFor="org">
         Organization
@@ -131,7 +142,8 @@ const Filter = ({ items, onFilter }: Props) => {
         </button>
       </div>
     </div>
-  );
+      )
+
 };
 
 export default Filter;
