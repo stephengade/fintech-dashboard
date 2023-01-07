@@ -12,3 +12,14 @@
         gap: 10px;
     }
 }
+
+.main {
+    overflow: hidden;
+    .table {
+
+        @include xs {
+        max-width: 100vw;
+        overflow: auto;
+        }
+    }
+}

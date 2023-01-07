@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Lendsqr-fe-test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A project built with reactjs, typescript, and scss (modular).
 
-## Available Scripts
+## External packages used
+- "Js-cookie" to store data
+- "React-icons" to get lightweight icons
 
-In the project directory, you can run:
+## Installation
+1. Clone the repository: `git clone https://github.com/stephengade/lendsqr-fe-test.git`
+2. Install all necessary modules and dependencies: `yarn`
 
-### `npm start`
+## Usage
+1. Start the project: `yarn start`
+2. Navigate to http://localhost:3000/ in your web browser to see the project live
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Testing
+1. Login: You can't login without putting an email and password. Don't worry, it is not connected to the backend so you can use any email and password (e.g. test@lendsqr.com and Lendsqr).
+2. You will be greeted with a blank dashboard page using the username extracted from the email provided.
+3. To see a list of customers from the MockApi, navigate to http://localhost:3000/user.
+4. You can view the details of each customer by clicking on the 3 dots on the right side of the table and then selecting "view details".
+5. The project is designed to be responsive and can be tested on mobile devices.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Demo
 
-### `npm test`
+You can [view the live demo here](https://stephen-gbolagade-lendsqr-fe-test.netlify.app/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributing
+If you would like to contribute to the project, please follow the guidelines in the `CONTRIBUTING.md` file.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## References
+- [Js-cookie](https://github.com/js-cookie/js-cookie)
+- [React-icons](https://react-icons.github.io/)

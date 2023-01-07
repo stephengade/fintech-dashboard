@@ -9,7 +9,7 @@ import UserData from './UserData';
 
 const Users = () => {
   return (
-    <>
+    <main className={style.main}>
 
         <div className={style.cards}>
             <Card icon={UserIcon} title="USERS" number="2,453" />
@@ -20,11 +20,11 @@ const Users = () => {
 
 
          
-    <section className={style.table}>
+        <section className={style.table}>
         <UserData />
     </section>
 
-    </>
+    </main>
   )
 }
 

@@ -5,6 +5,14 @@ import avater from "../../../images/avatar.svg";
 import { useProfile } from './../../Utils/hooks/useProfile';
 import { useParams } from "react-router-dom";
 
+import {FaStar, FaStarHalfAlt} from "react-icons/fa"
+
+const star = <span className={color.stars}>
+  <FaStar color="#E9B200" fontSize="16px" />
+  <FaStar color="#E9B200" fontSize="16px" />
+  <FaStarHalfAlt color="#E9B200" fontSize="16px" />
+  </span>
+
 const UserDetails = () => {
 
   const { id } = useParams();
@@ -56,6 +64,7 @@ const UserDetails = () => {
         <td className={color.line} />
         <td className={color.rating}>
           <p>User's Tier</p>
+           {star}
         </td>
         <td className={color.line} />
 
@@ -114,6 +123,8 @@ const UserDetails = () => {
           </div>
 
           <div className={color.details}>
+            <table>
+              <tr>
             <td>
               <p className={color.title}>Marital status</p>
               <p className={color.info}>{"married"}</p>
@@ -128,6 +139,11 @@ const UserDetails = () => {
               <p className={color.title}>Type of residence</p>
               <p className={color.info}>{"Parent's house"}</p>
             </td>
+
+            <td></td>
+            <td></td>
+            </tr>
+            </table>
           </div>
         </div>
    
@@ -169,6 +185,8 @@ const UserDetails = () => {
 
 
           <div className={color.details}>
+          <table>
+              <tr>
             <td>
               <p className={color.title}>Office email</p>
               <p className={color.info}>{userInfo.officeEmail}</p>
@@ -183,6 +201,12 @@ const UserDetails = () => {
               <p className={color.title}>loan repayment</p>
               <p className={color.info}>{userInfo.loanRepayment}</p>
             </td>
+
+            <td></td>
+            <td></td>
+            </tr>
+            </table>
+              
           </div>
         </div>
 
