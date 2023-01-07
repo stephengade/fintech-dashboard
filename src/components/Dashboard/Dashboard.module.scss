@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.main__section {
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 40px;
+
+  @include xs {
+    padding: 15px;
+  }
+
+  .h3 {
+    color: $len-blue;
+    font-size: 22px;
+    font-weight: 500;
+
+    @include xs {
+      font-size: 18px;
+    }
+  }
+}

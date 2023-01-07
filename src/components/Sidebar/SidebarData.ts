@@ -37,7 +37,7 @@ export const FirstList = [
 
 export const SecondList: iData[] = [
   {
-    link: "/",
+    link: "/dashboard",
     icon: dashboard,
     label: "Dashboard",
   }

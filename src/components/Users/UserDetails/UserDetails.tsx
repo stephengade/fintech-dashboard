@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import color from "./UserDetails.module.scss";
 import avater from "../../../images/avatar.svg";
@@ -25,6 +25,22 @@ const UserDetails = () => {
   const handleBack = () => {
     navigate("/users")
   }
+
+  // tabs
+  const [showGeneral, setShowGeneral] = useState(true)
+  const [showLoan, setShowLoan] = useState(false)
+  const [bank, setBank] = useState(false)
+  const [document, setDocument] = useState(false)
+
+
+  const handleTabs = (index: number) => {
+    setShowGeneral(index === 0);
+    setShowLoan(index === 3);
+    setBank(index === 2);
+    setDocument(index === 1);
+  };
+
+ 
 
   return (
     <main className={color.main}>
@@ -79,14 +95,20 @@ const UserDetails = () => {
         <div className={color.links}>
           {["General Details", "Documents", "Bank Details", "Loans"].map(
             (n, i) => (
-              <p key={i}>{n}</p>
+              <p key={i} onClick={() => handleTabs(i)}>{n}</p>
             )
           )}
         </div>
       </div>
 
-      {/* user description */}
-      <section className={color.main__section}>
+{/* 
+   Tabs */}
+
+   {showLoan && <h3 className={color.tab_title}>This is loan tab</h3>}
+   {bank && <h3 className={color.tab_title}>This is Bank details tab</h3>}
+   {document && <h3 className={color.tab_title}>This is Document tab</h3>}
+
+  {showGeneral && ( <section className={color.main__section}>
         {/* first section */}
         <div className={color.section}>
           <h3>Personal Information</h3>
@@ -147,8 +169,6 @@ const UserDetails = () => {
           </div>
         </div>
    
-
-
              {/* section 2 */}
 
         <div className={`${color.section} ${color.mt6}`}>
@@ -210,8 +230,6 @@ const UserDetails = () => {
           </div>
         </div>
 
-
-
         {/* section 3 */}
 
            <div className={`${color.section} ${color.mt6}`}>
@@ -244,8 +262,6 @@ const UserDetails = () => {
 
         {/* section 4*/}
 
-            {/* section 3 */}
-
             <div className={`${color.section} ${color.mt6}`}>
           <h3>Guarantor</h3>
 
@@ -276,10 +292,11 @@ const UserDetails = () => {
             </table>
           </div>
           </div>
+        
 
-{/* 
-          section 5 */}
-      </section>
+{/* section 5 */}
+      </section> )}
+   
     </main>
   );
 };
