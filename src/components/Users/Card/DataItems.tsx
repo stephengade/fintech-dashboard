@@ -5,10 +5,8 @@ import design from "../../Utils/Table/Table.module.scss";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MenuList } from "../../Utils/Menu/TableMenu";
 
-import _ from 'lodash';
 
 const menuIcon = <BsThreeDotsVertical />;
-
 
 interface iItem {
   Data: any[];
@@ -16,17 +14,8 @@ interface iItem {
   itemsPerPage: number;
 }
 
-
-export const Items = ({
-  Data,
-  currentPage,
-  itemsPerPage,
- 
-}: iItem) => {
-
-
-
- const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+export const Items = ({ Data, currentPage, itemsPerPage }: iItem) => {
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
 
   const toggleMenu = (id: string) => {
     if (openMenuId === id) {
@@ -36,11 +25,10 @@ export const Items = ({
     }
   };
 
- // status
+  // status
 
- const status = ["active", "inactive", "blacklisted"];
-const shuffledStatus = _.shuffle(status);
-  
+  const status = ["active", "inactive", "blacklisted", "pending"];
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedItems = Data && Data.slice(startIndex, endIndex);
@@ -54,7 +42,23 @@ const shuffledStatus = _.shuffle(status);
           <td className={design.data}>{item.email}</td>
           <td className={`${design.data}`}>{item.phoneNumber}</td>
           <td className={`${design.data}`}>{formatDate(item.createdAt)}</td>
-          <td className={`${design.data}`}>{shuffledStatus[index % 3]}</td>
+          <td
+            className={`${design.data}`}
+          >
+            <span
+              className={` ${
+                status[index % 4] === "blacklisted"
+                  ? design.blacklisted
+                  : status[index % 4] === "active"
+                  ? design.active
+                  : status[index % 4] === "pending"
+                  ? design.pending
+                  : design.inactive
+              }`}
+            >
+              {status[index % 4]}
+            </span>
+          </td>
           <td
             className={`${design.data} ${design.menu}`}
             onClick={() => toggleMenu(item.id)}

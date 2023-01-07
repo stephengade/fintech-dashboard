@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import design from "./Utils.module.scss";
 
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { GetPageNumbers } from "./SetPageNumber";
 
 
 const nextIcon = <GrNext color="#213F7D" />;
@@ -30,8 +31,8 @@ const Pagination = ({
   const totalPages = Math.ceil(totalItems / selectedItemsPerPage);
 
   // for pagination
-  const pageNumbers = Array.from(Array(totalPages).keys()).map((i) => i + 1);
-
+  // const pageNumbers = Array.from(Array(totalPages).keys()).map((i) => i + 1);
+  const pageNumbers = GetPageNumbers(currentPage, totalPages)
   // click events
   const handlePrevClick = () => {
     setCurrentPage(currentPage - 1);
@@ -69,7 +70,7 @@ const Pagination = ({
           {prevIcon}
         </button>
 
-        {pageNumbers.map((pageNumber) => (
+        {pageNumbers.map((pageNumber: any) => (
           <p
             key={pageNumber}
             className={

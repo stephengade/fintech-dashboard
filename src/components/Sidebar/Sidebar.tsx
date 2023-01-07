@@ -21,7 +21,7 @@ const Sidebar = () => {
 
   
   return (
-    <>
+    <div className={style.menu}>
       <div className={style.wrapper}>
         <ul className={style.list__item}>
           {FirstList.map((data, index) => (
@@ -90,7 +90,7 @@ const Sidebar = () => {
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 
