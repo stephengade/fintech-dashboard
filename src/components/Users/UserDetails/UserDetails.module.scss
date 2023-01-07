@@ -34,6 +34,14 @@
 }
 
 
+.tab_title {
+  color: $len-blue;
+  font-size: 24px;
+  margin: 15px;
+  text-align: center;
+
+}
+
 .main {
   overflow: hidden;
   .header {
@@ -209,9 +217,18 @@ overflow: auto;
       overflow-x: scroll;
     }
 
+    
+
+.active {
+  color: red;
+}
+
+.inActive {
+  color: blue;
+}
+
     p {
-        color: rgba(0, 0, 0, 0.8);
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 5px;
         cursor: pointer;
         width: 100%;
@@ -243,7 +260,7 @@ overflow: auto;
      
     }
 
-
+  
     .section {
 
 

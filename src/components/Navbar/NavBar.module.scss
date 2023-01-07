@@ -1,6 +1,17 @@
 @import "../../styles/variables";
 
 
+
+
+.hambuger {
+  display: none;
+
+  @include xs {
+    display: block;
+  }
+}
+
+
 .nav {
     display: flex;
     flex-direction: row;
@@ -8,6 +19,7 @@
     align-items: center;
     padding: 25px;
     background-color: #FFFFFF;
+    
 
 
     // left side
@@ -20,7 +32,7 @@
 
         .logo {
             @include xs {
-               width: 100px;
+               gap: 3px;
             }
         }
 

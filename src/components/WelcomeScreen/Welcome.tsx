@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import WelcomeImage from "../../images/welcomeImage.svg";
 import Logo from "../../images/lendrLogo.svg";
 import classes from "./Welcome.module.scss";
+import Cookies from "js-cookie";
 
 const Welcome = () => {
   const [showPassword, setShowPassord] = useState(false);
@@ -22,7 +23,7 @@ const Welcome = () => {
 
   const handleSubmit = (e?: any) => {
     e.preventDefault();
-    console.log("DATA:", formData);
+    Cookies.set("_lemail", formData.email)
 
     try {
       if (
